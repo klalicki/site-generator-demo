@@ -1,8 +1,8 @@
 :root {
   /* this is the height of the header bar */
-  --header-height: 130px;
+  --header-height: 180px;
   /* this is the background color of the header bar and panel */
-  --menu-bg: #9ae9cf;
+  --menu-bg: white;
   --menu-highlight-hover: white;
 }
 
@@ -32,21 +32,28 @@
 .main-nav-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: var(--header-height);
   position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
-  background: var(--menu-bg);
+  background-image: url("/assets/sample-img.jpg");
+  background-size: cover;
+  background-position: center;
 }
 /* this is img element that is the header logo */
 .header-logo {
   padding: 1rem;
 }
 .header-logo-link {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
 }
@@ -126,6 +133,10 @@ main {
 
 /* this media query sets the point where the layout transitions from top bar to hamburger */
 @media (min-width: 640px) {
+  main {
+    margin-top: calc(var(--header-height) + 70px);
+  }
+
   /* this makes the top bar menu items go across in a row on desktop */
   nav.main-nav {
     display: flex;
@@ -138,9 +149,12 @@ main {
   }
   /* this is the element that contains the 3 nav items on DESKTOP */
   .nav-items-list {
+    position: absolute;
+    top: var(--header-height);
     display: flex;
     flex-direction: row;
-    position: static;
+    justify-content: center;
+    width: 100%;
     height: auto;
     gap: 1rem;
     z-index: 100;
